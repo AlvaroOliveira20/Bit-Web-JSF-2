@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core" >
 <link rel="stylesheet" type="text/css" href="style.css"></link>
-
+<title>BitWeb - Seu banco digital</title>
 <h:head />
 <h:body>
     <h:form>
@@ -19,12 +19,16 @@
 
         <nav class="navigation-bar">
             <img class="logo" src="assets/logo.png"></img>
-            <a style = "cursor: pointer;"   class = "a" >Início</a>
+            <h:commandLink class = "a"  action ="/index?faces-redirect=true">
+                Inicio
+            </h:commandLink>
+
+
             <a style = "cursor: pointer;"  class = "a">BitConta</a>
             <a style = "cursor: pointer;"  class = "a" >BitRewards</a>
             <a style = "cursor: pointer;"  class = "a" >BitCard</a>
             <a style = "cursor: pointer;"  class = "a" >Sobre</a>
-            <h:commandButton style="margin-left: 130px" class = "button" value="LOGIN" action ="/login?faces-redirect=true"/>
+            <h:commandButton style="margin-left: 100px" class = "button" value="LOGIN" action ="/login?faces-redirect=true"/>
             <h:commandButton class = "button" value="CADASTRE-SE" />
 
         </nav>

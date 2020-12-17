@@ -19,7 +19,7 @@
                     <h:form id="formCadastrar" >
 
                         <p:panelGrid columns="8" width="100%">
-                            <f:facet name="header">USUÁRIOS CADASTRADOS</f:facet>
+                            <f:facet name="header">CADASTRAR UM NOVO USUÁRIO</f:facet>
                             <p:outputLabel for="nome" value="Nome" />
                             <p:inputText style = "width: 171px" id="nome" value="#{usuarioBean.usuario.nome}" />
                             <p:outputLabel for="cpf" value="CPF" />
@@ -27,7 +27,7 @@
                             <p:outputLabel for="email" value="E-mail" />
                             <p:inputText style = "width: 171px" id="email" value="#{usuarioBean.usuario.email}" />
                             <p:outputLabel for="senha" value="Senha" />
-                            <p:inputText style = "width: 171px" id="senha" value="#{usuarioBean.usuario.senha}" />
+                            <p:inputText type="password" style = "width: 171px" id="senha" value="#{usuarioBean.usuario.senha}" />
                         </p:panelGrid>
                         <div style="display: flex; justify-content: center; margin-bottom: 30px; margin-top: 30px">
                         <p:commandButton  value="CADASTRAR" id="nonAjax" action="#{usuarioBean.salvar(usuarioBean.usuario)}"  ajax="false" />
@@ -55,17 +55,14 @@
                             <h:outputText value="#{usuario.email}" />
                         </p:column>
                         <p:column headerText="Senha">
-                            <h:outputText value="#{usuario.senha}" />
+                            <h:outputText value="******" />
                         </p:column>
                         <p:column headerText="Ações" style="width: 120px;">
-                            <p:commandButton  value="EXCLUIR" id="nonAjax" action="#{usuarioBean.remover(usuario)}"  ajax="false" />
-                        </p:column>
-                        <h:column>
-                            <f:facet name="header">Ações</f:facet>
                             <h:commandLink action="#{usuarioBean.remover(usuario)}">
-                                Excluir
+                                EXCLUIR
                             </h:commandLink>
-                        </h:column>
+                        </p:column>
+
                     </p:dataTable>
 
                 </h:form>
