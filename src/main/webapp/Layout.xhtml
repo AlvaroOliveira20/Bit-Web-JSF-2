@@ -1,0 +1,45 @@
+<?xml version ="1.0" encoding ="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
+<link rel="stylesheet" type="text/css" href="style.css"></link>
+
+<h:head />
+<h:body>
+    <h:form>
+
+
+
+
+
+
+        <nav class="navigation-bar">
+            <img class="logo" src="assets/logo.png"></img>
+            <a style = "cursor: pointer;"   class = "a" >Início</a>
+            <a style = "cursor: pointer;"  class = "a">BitConta</a>
+            <a style = "cursor: pointer;"  class = "a" >BitRewards</a>
+            <a style = "cursor: pointer;"  class = "a" >BitCard</a>
+            <a style = "cursor: pointer;"  class = "a" >Sobre</a>
+            <h:commandButton style="margin-left: 130px" class = "button" value="LOGIN" action ="/login?faces-redirect=true"/>
+            <h:commandButton class = "button" value="CADASTRE-SE" />
+
+        </nav>
+    </h:form>
+    <ui:insert name="conteudo" ></ui:insert>
+
+    <nav class="navigation-footer">
+        <img class="logoFooter" src="logo.png"></img>
+        <a style = "cursor: pointer;"  class = "aFooter" >Contato</a>
+        <a style = "cursor: pointer;"  class = "aFooter" >Ajuda</a>
+        <a style = "cursor: pointer;"  class = "aFooter" >Política de privacidade</a>
+        <a style = "cursor: pointer;"  class = "aFooter" >Sobre</a>
+        <a style = "cursor: pointer;"  id="myBtn" title="Go to top"  class = "aFooter" >Voltar ao topo</a>
+        <a style = "cursor: pointer;"  class = "aFooter" >Chat online</a>
+    </nav>
+
+</h:body>
+</html>

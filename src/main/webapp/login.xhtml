@@ -1,0 +1,76 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>BitWeb - Seu banco digital</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link>
+</h:head>
+
+<h:body>
+    <ui:composition template="/Layout.xhtml">
+        <ui:define name="conteudo">
+            <h:body>
+                <h:form>
+                    <h:form id="formCadastrar" >
+
+                        <p:panelGrid columns="8" width="100%">
+                            <f:facet name="header">USUÁRIOS CADASTRADOS</f:facet>
+                            <p:outputLabel for="nome" value="Nome" />
+                            <p:inputText style = "width: 171px" id="nome" value="#{usuarioBean.usuario.nome}" />
+                            <p:outputLabel for="cpf" value="CPF" />
+                            <p:inputText style = "width: 171px" id="cpf" value="#{usuarioBean.usuario.cpf}" />
+                            <p:outputLabel for="email" value="E-mail" />
+                            <p:inputText style = "width: 171px" id="email" value="#{usuarioBean.usuario.email}" />
+                            <p:outputLabel for="senha" value="Senha" />
+                            <p:inputText style = "width: 171px" id="senha" value="#{usuarioBean.usuario.senha}" />
+                        </p:panelGrid>
+                        <div style="display: flex; justify-content: center; margin-bottom: 30px; margin-top: 30px">
+                        <p:commandButton  value="CADASTRAR" id="nonAjax" action="#{usuarioBean.salvar(usuarioBean.usuario)}"  ajax="false" />
+                        </div>
+
+                    </h:form>
+
+                    <p:dataTable value="#{usuarioBean.lista}" var="usuario"
+                                 id="tabelaUsuario" paginator="true" rows="5" width="100%"
+                                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                                 currentPageReportTemplate="{currentPage} de {totalPages}"
+                                 rowsPerPageTemplate="10,15,20" paginatorAlwaysVisible="false"
+                                 emptyMessage="Desculpe, nenhum usuário foi encontrado!"
+
+
+                    >
+                        <f:facet name="header">USUÁRIOS CADASTRADOS</f:facet>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{usuario.nome}" />
+                        </p:column>
+                        <p:column headerText="CPF">
+                            <h:outputText value="#{usuario.cpf}" />
+                        </p:column>
+                        <p:column headerText="E-mail">
+                            <h:outputText value="#{usuario.email}" />
+                        </p:column>
+                        <p:column headerText="Senha">
+                            <h:outputText value="#{usuario.senha}" />
+                        </p:column>
+                        <p:column headerText="Ações" style="width: 120px;">
+                            <p:commandButton  value="EXCLUIR" id="nonAjax" action="#{usuarioBean.remover(usuario)}"  ajax="false" />
+                        </p:column>
+                        <h:column>
+                            <f:facet name="header">Ações</f:facet>
+                            <h:commandLink action="#{usuarioBean.remover(usuario)}">
+                                Excluir
+                            </h:commandLink>
+                        </h:column>
+                    </p:dataTable>
+
+                </h:form>
+            </h:body>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
